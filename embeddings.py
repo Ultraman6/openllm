@@ -1,19 +1,11 @@
 import os
-from llama_index import (
-    GPTVectorStoreIndex,
-    SimpleDirectoryReader,
-    LLMPredictor,
-    ServiceContext,
-    load_index_from_storage
-    
-)
-from llama_index.storage.storage_context import StorageContext
-from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.agents import Tool
 from langchain.agents import initialize_agent
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from dotenv import load_dotenv
-
+from llama_index.legacy import load_index_from_storage, ServiceContext, LLMPredictor, SimpleDirectoryReader, \
+    GPTVectorStoreIndex, StorageContext
 
 
 class Embedding:

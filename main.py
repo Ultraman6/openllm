@@ -4,12 +4,6 @@ from nicegui import Client, ui, events, app
 from chat import ChatApp
 from embeddings import Embedding
 #import user
-from typing import Optional
-from fastapi import Request
-from fastapi.responses import RedirectResponse
-from starlette.middleware.base import BaseHTTPMiddleware
-from authmiddleware import AuthMiddleware
-import login_page
 
 
 embedding = Embedding()
@@ -122,7 +116,5 @@ async def main(client: Client):
         ui.markdown('simple chat app built with [NiceGUI](https://nicegui.io)') \
             .classes('text-xs self-end mr-8 m-[-1em] text-primary')
 
-login_page
 # Hinzufügen der AuthMiddleware zur Anwendung
-app.add_middleware(AuthMiddleware)
 ui.run(title='Chat with LLM', favicon="🤖", reconnect_timeout = 200, storage_secret = os.getenv("STORAGE_SECRET"))
